@@ -110,6 +110,10 @@ nav {
 .contact-list {
 	background-color: #131C21;
 	border-bottom: 1px solid #404548;
+	overflow: hidden;
+}
+.contact-list li:first-child {
+	border-top: 1px solid #323739;
 }
 .contact-list li{
 	display: flex;
@@ -125,6 +129,8 @@ nav {
 .contact-list .preview {
 	margin-left: 50px;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 p.name {
 	color: #fff;
@@ -167,6 +173,38 @@ main {
 	overflow: hidden;
 
 }
+.chat ul {
+	display: flex;
+	flex-direction: column;
+
+}
+.chat ul li {
+	color: #fff;
+	list-style: none;
+	display: flex;
+	margin: 20px 40px;
+	align-items: center;
+	width: 50%;
+	padding: 0 10px;
+}
+.outgoing, .incoming {
+	height: 30px;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+.outgoing {
+	background-color: #056162;
+	align-self: flex-end;
+}
+.incoming {
+	background-color: #262C31;
+	align-self: flex-start;
+}
+.time-stamp {
+	color: #8E9193;
+	margin-left: auto;
+	font-size: 10px;
+}
 .message-box {
 	height: 50px;
 	background-color: #1E2428;
@@ -198,28 +236,4 @@ main {
 	color: #8E9193;
 	font-size: 16px;
 }
-.chat ul li {
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	margin: 20px 40px;
-}
-.outgoing, .incoming {
 
-	height: 30px;
-	border-radius: 5px;
-	margin: 10px 30px;
-
-}
-.outgoing {
-	background-color: #056162;
-}
-.incoming {
-	background-color: #262C31;
-}
-
-.msg-box {
-	width: 100%;
-	padding: 0 15px;
-}

@@ -27,6 +27,7 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
+				timeStampLs: ''
 			},
 			{
 				name: 'Fabio',
@@ -50,6 +51,7 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
+				timeStampLs: ''
 			},
 			{
 				name: 'Samuele',
@@ -73,6 +75,7 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
+				timeStampLs: ''
 			},
 			{
 				name: 'Luisa',
@@ -91,9 +94,11 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
+				timeStampLs: ''
 			},
 		],
-		currentContact: 0
+		currentContact: 0,
+		newMessage: ''
 	},
 	computed: {
 
@@ -104,18 +109,34 @@ var app = new Vue({
 				if (element.name === nome) {
 					let lunghezza =element.messages.length;
 					element.lastMessage = element.messages[lunghezza - 1 ].text;
-					console.log(element.lastMessage);
+					element.timeStampLs = element.messages[lunghezza-1].date;
 
 				}
 			})
 		},
-		selectContact : function (nome) {
+		selectContact: function (nome) {
 			this.contacts.forEach((item,index)=> {
 				if (nome === item.name){
 					this.currentContact = index;
 				}
 			})
+		},
+		sendMessage: function (chat, messaggio){
+			this.contacts.forEach((item,index)=>{
+				if (index === chat) {
+					let newMessageObj = {
+						date: dayjs().format('DD/MM/YYYY HH:mm:ss') ,
+						text: messaggio,
+						status: 'sent'
+					}
+					item.messages.push(newMessageObj);
+				}
+			})
+			this.newMessage = '';
 		}
 
 	}
 });
+function getTime(data) {
+	return dayjs(data).format('HH:mm')
+}

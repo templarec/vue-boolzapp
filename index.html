@@ -53,6 +53,7 @@
 									<div class="preview">
 										<p class="name">{{contatti.name}}</p>
 										<p class="last-message" v-bind="getLastMessage(contatti.name)">{{contatti.lastMessage}}</p>
+										<p class="time-stamp">{{contatti.timeStampLs}}</p>
 									</div>
 
 								</li>
@@ -70,7 +71,8 @@
 					<div class="chat">
 						<ul>
 							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? 'outgoing' : 'incoming')">
-								<div class="msg-box">{{messaggi.text}}</div>
+								<span class="msg-box">{{messaggi.text}}</span>
+								<span class="time-stamp">{{messaggi.date}}</span>
 							</li>
 						</ul>
 					</div>
@@ -78,7 +80,7 @@
 						<i class="far fa-grin-alt"></i>
 						<i class="fas fa-paperclip"></i>
 						<div class="message-area">
-							<input type="text" placeholder="Scrivi un messaggio">
+							<input type="text" v-model="newMessage" @keyup.enter="sendMessage(currentContact, newMessage)" placeholder="Scrivi un messaggio">
 						</div>
 						<i class="fas fa-microphone"></i>
 					</div>
@@ -87,6 +89,7 @@
 		</div>
 	<!-- Vue cdn development -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
 	<!-- My custom JS script -->
 	<script src="./assets/js/main.js"></script>
 	</body>
