@@ -13,6 +13,7 @@ body {
 	align-items: center;
 }
 .messenger {
+	margin-top: 50px;
 	width: 80%;
 	background-color: #2A2F32;
 }
@@ -84,8 +85,8 @@ nav {
 .the-box {
 	color: #828689;
 	border-radius: 20px;
-	height: 80%;
-	width: 90%;
+	height: 70%;
+	width: 97%;
 	background-color: #323739;
 	display: flex;
 	align-items: center;
@@ -104,7 +105,30 @@ nav {
 
 }
 .contact-list {
-	background-color: #323739;
+	background-color: #131C21;
+	border-bottom: 1px solid #404548;
+}
+.contact-list li{
+	display: flex;
+	align-items: center;
+	list-style: none;
+	padding: 10px 20px;
+
+}
+.contact-list img {
+	width: 50px;
+	border-radius: 50%;
+}
+.contact-list .preview {
+	margin-left: 50px;
+	width: 100%;
+}
+p.name {
+	color: #fff;
+}
+p.last-message {
+	margin-top: 5px;
+	font-size: 12px;
 }
 main {
 	width: 66%;
