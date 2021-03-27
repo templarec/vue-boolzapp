@@ -43,12 +43,12 @@
 						<div class="search-box">
 							<div class="the-box">
 								<i class="fas fa-search"></i>
-								<input type="text" placeholder="Cerca o inizia una nuova chat">
+								<input type="text" v-model="cercaUtente" placeholder="Cerca o inizia una nuova chat">
 							</div>
 						</div>
 						<div class="contact-list">
 							<ul>
-								<li v-for="contatti in contacts" @click="selectContact(contatti.name)">
+								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="contatti.name.includes(cercaUtente)">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div class="preview">
 										<p class="name">{{contatti.name}}</p>

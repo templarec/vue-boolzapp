@@ -98,7 +98,8 @@ var app = new Vue({
 			},
 		],
 		currentContact: 0,
-		newMessage: ''
+		newMessage: '',
+		cercaUtente: ''
 	},
 	computed: {
 
@@ -144,6 +145,7 @@ var app = new Vue({
 		},
 		getTime: function (data) {
 			return dayjs(data).format('HH:mm');
-		}
+		},
+
 	}
 });
