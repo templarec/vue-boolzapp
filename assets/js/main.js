@@ -79,7 +79,7 @@ var app = new Vue({
 			},
 			{
 				name: 'Luisa',
-				avatar: '_4',
+				avatar: '_6',
 				visible: true,
 				messages: [
 					{
@@ -146,6 +146,11 @@ var app = new Vue({
 		getTime: function (data) {
 			return dayjs(data).format('HH:mm');
 		},
-
+		searchUser: function (user1,user2) {
+			user1 = user1.toLowerCase();
+			user2 = user2.toLowerCase();
+			if (user1.includes(user2))
+				return true;
+		}
 	}
 });

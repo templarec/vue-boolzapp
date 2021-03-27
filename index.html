@@ -48,7 +48,7 @@
 						</div>
 						<div class="contact-list">
 							<ul>
-								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="contatti.name.includes(cercaUtente)">
+								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="searchUser(contatti.name, cercaUtente)">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div class="preview">
 										<p class="name">{{contatti.name}}</p>
