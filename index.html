@@ -48,11 +48,11 @@
 						</div>
 						<div class="contact-list">
 							<ul>
-								<li>
-									<img src="./assets/img/avatar_1.jpg" alt="Contact avatar">
+								<li v-for="contatti in contacts">
+									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div class="preview">
-										<p class="name">Michele</p>
-										<p class="last-message">Ciao</p>
+										<p class="name">{{contatti.name}}</p>
+										<p class="last-message">{{contatti.messages.text}}</p>
 									</div>
 
 								</li>
