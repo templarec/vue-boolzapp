@@ -5,7 +5,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 body {
-	background-color: #000;
+	background-color: #0D1418;
 }
 #root {
 	display: flex;
@@ -15,7 +15,7 @@ body {
 .messenger {
 	margin-top: 50px;
 	width: 80%;
-	background-color: #2A2F32;
+	background-color: #0D1418;
 	display: flex;
 	height: calc(100vh - 60px);
 }
@@ -23,6 +23,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	width: calc(100% / 3);
+	background-color: #323739;
 }
 .tools {
 	color: #B1B3B5;
@@ -104,7 +105,7 @@ nav {
 	border-right-style: hidden;
 	border-left-style: hidden;
 	border-bottom-style: hidden;
-
+	color: #8E9193;
 }
 .contact-list {
 	background-color: #131C21;
@@ -160,7 +161,39 @@ main {
 }
 .chat {
 	width: 100%;
-	height: calc(100% - 60px);
-	background-image: url('../img/background.jpg');
-	background-size: 50%;
+	height: calc(100% - 110px);
+	background-image: url('../img/dark.png');
+	background-repeat: repeat;
+	opacity: 0.15;
+}
+.message-box {
+	height: 50px;
+	background-color: #1E2428;
+	display: flex;
+	align-items: center;
+	color: #8E9193;
+}
+.message-box i {
+	font-size: 20px;
+}
+.message-box > * {
+	padding: 0 20px;
+}
+.message-area {
+	height: 80%;
+	width: 90%;
+	background-color: #323739;
+	border-radius: 20px;
+}
+.message-area input {
+	background-color: transparent;
+	width: 95%;
+	height: 98%;
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: hidden;
+	outline: none;
+	color: #8E9193;
+	font-size: 16px;
 }
