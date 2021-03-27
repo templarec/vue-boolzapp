@@ -72,7 +72,7 @@
 						<ul>
 							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? 'outgoing' : 'incoming')">
 								<span class="msg-box">{{messaggi.text}}</span>
-								<span class="time-stamp">{{messaggi.date}}</span>
+								<span class="time-stamp">{{getTime(messaggi.date)}}</span>
 							</li>
 						</ul>
 					</div>

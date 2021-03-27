@@ -35,17 +35,17 @@ var app = new Vue({
 				visible: true,
 				messages: [
 					{
-						date: '20/03/2020 16:30:00',
+						date: '10/01/2020 15:30:55',
 						text: 'Ciao come stai?',
 						status: 'sent'
 					},
 					{
-						date: '20/03/2020 16:30:55',
+						date: '10/01/2020 15:35:55',
 						text: 'Bene grazie! Stasera ci vediamo?',
 						status: 'received'
 					},
 					{
-						date: '20/03/2020 16:35:00',
+						date: '10/01/2020 15:37:55',
 						text: 'Mi piacerebbe ma devo andare a fare la spesa.',
 						status: 'sent'
 					}
@@ -59,17 +59,17 @@ var app = new Vue({
 				visible: true,
 				messages: [
 					{
-						date: '28/03/2020 10:10:40',
+						date: '10/01/2020 22:37:55',
 						text: 'La Marianna va in campagna',
 						status: 'received'
 					},
 					{
-						date: '28/03/2020 10:20:10',
+						date: '10/01/2020 23:37:55',
 						text: 'Sicuro di non aver sbagliato chat?',
 						status: 'sent'
 					},
 					{
-						date: '28/03/2020 16:15:22',
+						date: '11/01/2020 00:37:55',
 						text: 'Ah scusa!',
 						status: 'received'
 					}
@@ -109,8 +109,7 @@ var app = new Vue({
 				if (element.name === nome) {
 					let lunghezza =element.messages.length;
 					element.lastMessage = element.messages[lunghezza - 1 ].text;
-					element.timeStampLs = element.messages[lunghezza-1].date;
-
+					element.timeStampLs = dayjs(element.messages[lunghezza-1].date).format('HH:mm');
 				}
 			})
 		},
@@ -125,18 +124,26 @@ var app = new Vue({
 			this.contacts.forEach((item,index)=>{
 				if (index === chat) {
 					let newMessageObj = {
-						date: dayjs().format('DD/MM/YYYY HH:mm:ss') ,
+						date: dayjs(),
 						text: messaggio,
 						status: 'sent'
 					}
 					item.messages.push(newMessageObj);
+					setTimeout(()=> {
+						let newMessageObj = {
+							date: dayjs(),
+							text: 'ok',
+							status: 'received'
+						}
+						item.messages.push(newMessageObj);
+					},1000)
 				}
 			})
 			this.newMessage = '';
-		}
 
+		},
+		getTime: function (data) {
+			return dayjs(data).format('HH:mm');
+		}
 	}
 });
-function getTime(data) {
-	return dayjs(data).format('HH:mm')
-}
