@@ -116,7 +116,7 @@ nav {
 	align-items: center;
 	list-style: none;
 	padding: 10px 20px;
-
+	border-bottom: 1px solid #323739;
 }
 .contact-list img {
 	width: 50px;
@@ -162,9 +162,10 @@ main {
 .chat {
 	width: 100%;
 	height: calc(100% - 110px);
-	background-image: url('../img/dark.png');
+	background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url("../img/dark.png");
 	background-repeat: repeat;
-	opacity: 0.15;
+	overflow: hidden;
+
 }
 .message-box {
 	height: 50px;
@@ -196,4 +197,29 @@ main {
 	outline: none;
 	color: #8E9193;
 	font-size: 16px;
+}
+.chat ul li {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 20px 40px;
+}
+.outgoing, .incoming {
+
+	height: 30px;
+	border-radius: 5px;
+	margin: 10px 30px;
+
+}
+.outgoing {
+	background-color: #056162;
+}
+.incoming {
+	background-color: #262C31;
+}
+
+.msg-box {
+	width: 100%;
+	padding: 0 15px;
 }

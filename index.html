@@ -48,11 +48,11 @@
 						</div>
 						<div class="contact-list">
 							<ul>
-								<li v-for="contatti in contacts">
+								<li v-for="contatti in contacts" @click="selectContact(contatti.name)">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div class="preview">
 										<p class="name">{{contatti.name}}</p>
-										<p class="last-message">{{contatti.messages.text}}</p>
+										<p class="last-message" v-bind="getLastMessage(contatti.name)">{{contatti.lastMessage}}</p>
 									</div>
 
 								</li>
@@ -62,13 +62,17 @@
 				</nav>
 				<main>
 					<div class="header">
-						<img src="./assets/img/avatar_1.jpg" alt="Current avatar">
-						<span class="current-contact">Michele</span>
+						<img :src="'./assets/img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="Current avatar">
+						<span class="current-contact">{{contacts[currentContact].name}}</span>
 						<i class="fas fa-search"></i>
 						<i class="fas fa-ellipsis-v"></i>
 					</div>
 					<div class="chat">
-
+						<ul>
+							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? 'outgoing' : 'incoming')">
+								<div class="msg-box">{{messaggi.text}}</div>
+							</li>
+						</ul>
 					</div>
 					<div class="message-box">
 						<i class="far fa-grin-alt"></i>

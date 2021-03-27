@@ -26,6 +26,7 @@ var app = new Vue({
 						status: 'received'
 					}
 				],
+				lastMessage: '',
 			},
 			{
 				name: 'Fabio',
@@ -48,6 +49,7 @@ var app = new Vue({
 						status: 'sent'
 					}
 				],
+				lastMessage: '',
 			},
 			{
 				name: 'Samuele',
@@ -70,6 +72,7 @@ var app = new Vue({
 						status: 'received'
 					}
 				],
+				lastMessage: '',
 			},
 			{
 				name: 'Luisa',
@@ -87,9 +90,32 @@ var app = new Vue({
 						status: 'received'
 					}
 				],
+				lastMessage: '',
 			},
-		]
+		],
+		currentContact: 0
 	},
-	computed: {},
-	methods: {}
+	computed: {
+
+	},
+	methods: {
+		getLastMessage: function (nome) {
+			this.contacts.forEach((element)=>{
+				if (element.name === nome) {
+					let lunghezza =element.messages.length;
+					element.lastMessage = element.messages[lunghezza - 1 ].text;
+					console.log(element.lastMessage);
+
+				}
+			})
+		},
+		selectContact : function (nome) {
+			this.contacts.forEach((item,index)=> {
+				if (nome === item.name){
+					this.currentContact = index;
+				}
+			})
+		}
+
+	}
 });
