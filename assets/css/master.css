@@ -4,3 +4,108 @@
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 }
+body {
+	background-color: #000;
+}
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.messenger {
+	width: 80%;
+	background-color: #2A2F32;
+}
+nav {
+	display: flex;
+	flex-direction: column;
+	width: 33%;
+}
+.tools {
+	color: #B1B3B5;
+	display: flex;
+	width: 100%;
+	border-right: 1px solid #404548;
+	flex-direction: column;
+}
+.my-things {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 10px 20px;
+}
+.my-things svg, .my-things i {
+	margin: 0 20px;
+
+}
+.my-things svg:nth-child(2) {
+	margin-left: auto;
+}
+.my-things img {
+	width: 40px;
+	border-radius: 50%;
+}
+.notifications {
+	display: flex;
+	background-color: #085373;
+	align-items: center;
+	height: 80px;
+	padding: 0 20px
+}
+.bell-icon {
+	width: 40px;
+	height: 40px;
+	background-color: #8EB2BE;
+	color: #085373;
+	border-radius: 50%;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.notification-text {
+	margin-left: 40px;
+}
+.notification-text p:first-child{
+	font-size: 16px;
+	color: #fff;
+}
+.notification-text p:last-child{
+	color: #8EB2BE;
+	font-size: 12px;
+}
+.search-box {
+	height: 50px;
+	display: flex;
+	background-color: #131C21;
+	align-items: center;
+	justify-content: center;
+}
+.the-box {
+	color: #828689;
+	border-radius: 20px;
+	height: 80%;
+	width: 90%;
+	background-color: #323739;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.the-box input {
+	font-size: 16px;
+	background-color: #323739;
+	width: 80%;
+	outline: none;
+	padding-left: 30px;
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: hidden;
+
+}
+.contact-list {
+	background-color: #323739;
+}
+main {
+	width: 66%;
+}
