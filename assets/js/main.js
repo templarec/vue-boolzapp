@@ -167,14 +167,11 @@ var app = new Vue({
 			}
 		},
 		deleteMsg: function (indice,messaggio) {
-			console.log("prima",this.contacts[indice].messages.length)
 			if (this.contacts[indice].messages.length > 0) {
 				this.contacts[indice].messages.forEach((item, index) => {
 					if (item.text === messaggio) {
 						this.contacts[indice].count = this.contacts[indice].messages.length - 1
 						this.contacts[indice].messages.splice(index, 1);
-
-						console.log("dopo",this.contacts[indice].count)
 					}
 				})
 			}
