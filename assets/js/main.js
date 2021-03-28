@@ -180,3 +180,14 @@ var app = new Vue({
 		}
 	}
 });
+setInterval(() => {
+	let currentTime = dayjs();
+	let daylightTime = currentTime.set('hour', 18).set('minute', 0);
+	console.log(currentTime.format("HH:mm"), daylightTime.format("HH:mm"))
+	if (currentTime.isAfter(daylightTime)) {
+		app.light = false;
+	} else {
+		app.light = true;
+	}
+}, 500)
+

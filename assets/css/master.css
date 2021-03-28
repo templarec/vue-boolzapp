@@ -4,12 +4,14 @@
 	box-sizing: border-box;
 	font-family: Helvetica, sans-serif;
 }
-
+body {
+	background-color: #0D1418;
+}
 #root {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/*background-color: #0D1418; !* 1 *!*/
+	 /* 1 */
 	height: 100vh;
 }
 .messenger {
