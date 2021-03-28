@@ -150,6 +150,21 @@ nav {
 	overflow-y: scroll;
 	height: calc(100% - 150.31px);
 }
+.contact-list::-webkit-scrollbar-track, .contact-light::-webkit-scrollbar-track {
+	background: rgba(255,255,255,0.1);
+}
+.contact-light::-webkit-scrollbar-track {
+	background: rgba(0,0,0,0.1);
+}
+.contact-list::-webkit-scrollbar-thumb, .contact-light::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.2);
+}
+.contact-light::-webkit-scrollbar-thumb {
+	background: rgba(0,0,0,0.2);
+}
+.contact-list::-webkit-scrollbar-thumb:hover, .contact-light::-webkit-scrollbar-thumb:hover {
+	background: #eece7d;
+}
 .contact-light {
 	background-color: #fff ;
 	border-bottom: 1px solid #F2F2F2;
@@ -236,6 +251,27 @@ main {
 	background-repeat: repeat;
 	overflow-y: scroll;
 	padding-top: 15px;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+.chat::-webkit-scrollbar-track, .chat-light::-webkit-scrollbar-track {
+	background: rgba(255,255,255,0.1);
+}
+.chat-light::-webkit-scrollbar-track {
+	background: rgba(0,0,0,0.1);
+}
+.chat::-webkit-scrollbar-thumb, .chat-light::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.2);
+}
+.chat-light::-webkit-scrollbar-thumb {
+	background: rgba(0,0,0,0.2);
+}
+.chat::-webkit-scrollbar-thumb:hover, .chat-light::-webkit-scrollbar-thumb:hover {
+	background: #eece7d;
+}
+.chat-light::-webkit-scrollbar-thumb:hover {
+	background: #8f7d48;
 }
 .chat-light {
 	background: linear-gradient(rgba(229,221,213,.9), rgba(229,221,213,.9)), url("../img/light.png");
