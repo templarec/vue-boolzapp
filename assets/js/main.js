@@ -104,7 +104,8 @@ var app = new Vue({
 		currentContact: 0,
 		newMessage: '',
 		cercaUtente: '',
-		showWindow: false
+		showWindow: false,
+		light: true
 	},
 	computed: {
 

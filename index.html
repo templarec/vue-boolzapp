@@ -18,10 +18,10 @@
 		<title>Boolzapp</title>
 	</head>
 	<body>
-		<div id="root">
-			<div class="messenger">
-				<nav>
-					<div class="tools">
+		<div id="root" >
+			<div class="messenger" :class="(light) ? 'rm-light' : '' ">
+				<nav :class="(light) ? 'nav-light' : '' ">
+					<div class="tools" :class="(light) ? 'tools-light' : '' ">
 						<div class="my-things">
 							<img src="./assets/img/avatar_io.jpg" alt="My propic">
 							<svg id="df9d3429-f0ef-48b5-b5eb-f9d27b2deba6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -31,27 +31,27 @@
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z"></path></svg>
 							<i class="fas fa-ellipsis-v"></i>
 						</div>
-						<div class="notifications">
-							<div class="bell-icon">
+						<div class="notifications" :class="(light) ? 'noti-light' : '' ">
+							<div class="bell-icon" :class="(light) ? 'bell-light' : '' ">
 								<i class="fas fa-bell-slash"></i>
 							</div>
 							<div class="notification-text">
-								<p>Ricevi notifiche di nuovi messaggi</p>
-								<p>Arriva notifiche desktop ></p>
+								<p :class="(light) ? 'black-txt' : '' ">Ricevi notifiche di nuovi messaggi</p>
+								<p :class="(light) ? 'black-txt' : '' ">Arriva notifiche desktop ></p>
 							</div>
 						</div>
-						<div class="search-box">
-							<div class="the-box">
+						<div class="search-box" :class="(light) ? 'search-light' : '' ">
+							<div class="the-box" :class="(light) ? 'box-light' : '' ">
 								<i class="fas fa-search"></i>
-								<input type="text" v-model="cercaUtente" placeholder="Cerca o inizia una nuova chat">
+								<input :class="(light) ? 'box-input-light' : '' " type="text" v-model="cercaUtente" placeholder="Cerca o inizia una nuova chat">
 							</div>
 						</div>
-						<div class="contact-list">
+						<div class="contact-list" :class="(light) ? 'contact-light' : '' ">
 							<ul>
 								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="searchUser(contatti.name, cercaUtente)">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div  class="preview">
-										<p class="name">{{contatti.name}}</p>
+										<p :class="(light) ? 'name-light' : '' " class="name">{{contatti.name}}</p>
 										<p v-if="contatti.count > 0" class="last-message" v-bind="getLastMessage(contatti.name)">{{contatti.lastMessage}}</p>
 										<p v-if="contatti.count > 0" class="time-stamp">{{contatti.timeStampLs}}</p>
 									</div>
@@ -61,15 +61,15 @@
 					</div>
 				</nav>
 				<main>
-					<div class="header">
+					<div class="header" :class="(light) ? 'header-light' : '' ">
 						<img :src="'./assets/img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="Current avatar">
-						<span class="current-contact">{{contacts[currentContact].name}}</span>
+						<span :class="(light) ? 'cc-light' : '' " class="current-contact">{{contacts[currentContact].name}}</span>
 						<i class="fas fa-search"></i>
 						<i class="fas fa-ellipsis-v"></i>
 					</div>
-					<div class="chat">
+					<div class="chat" :class="(light) ? 'chat-light' : '' ">
 						<ul v-if="contacts[currentContact].count > 0">
-							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? 'outgoing' : 'incoming')">
+							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? ((light) ? 'outgoing-light': 'outgoing') : ((light) ? 'incoming-light': 'incoming'))">
 								<span class="msg-box">{{messaggi.text}}</span>
 								<span class="time-stamp">{{getTime(messaggi.date)}}</span>
 								<span class="caret-menu" @click="showMsgMenu()">
@@ -84,10 +84,10 @@
 							</li>
 						</ul>
 					</div>
-					<div class="message-box">
+					<div class="message-box" :class="(light) ? 'message-box-light' : '' ">
 						<i class="far fa-grin-alt"></i>
 						<i class="fas fa-paperclip"></i>
-						<div class="message-area">
+						<div class="message-area" :class="(light) ? 'message-area-light' : '' ">
 							<input type="text" v-model="newMessage" @keyup.enter="sendMessage(currentContact, newMessage)" placeholder="Scrivi un messaggio">
 						</div>
 						<i class="fas fa-microphone"></i>
