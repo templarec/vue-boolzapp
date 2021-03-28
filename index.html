@@ -61,7 +61,7 @@
 						</div>
 					</div>
 				</nav>
-				<main>
+				<main :class="(light) ? 'main-light' : '' ">
 					<div class="header" :class="(light) ? 'header-light' : '' ">
 						<img :src="'./assets/img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="Current avatar">
 						<span :class="(light) ? 'cc-light' : '' " class="current-contact">{{contacts[currentContact].name}}</span>

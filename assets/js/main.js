@@ -183,7 +183,7 @@ var app = new Vue({
 setInterval(() => {
 	let currentTime = dayjs();
 	let darkStart = currentTime.set('hour', 18).set('minute', 0);
-	let darkEnd = currentTime.set('hour', 6).set('minute', 0);
+	let darkEnd = currentTime.set('hour', 0).set('minute', 0);
 	console.log(currentTime.format("HH:mm"), darkStart.format("HH:mm"), darkEnd.format("HH:mm"))
 	if (currentTime.isAfter(darkStart) || currentTime.isBefore(darkEnd)) {
 		app.light = false;

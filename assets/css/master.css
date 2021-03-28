@@ -15,7 +15,7 @@ body {
 	height: 100vh;
 }
 .messenger {
-	margin-top: 50px;
+	margin: 25px 0;
 	width: 100vw;
 	background-color: #0D1418; /* 1 */
 	display: flex;
@@ -28,7 +28,8 @@ nav {
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	background-color: #323739; /* 2 */
+	background-color: #323739;
+	height: 100%;/* 2 */
 }
 .nav-light {
 	background-color: #EDEDED ;
@@ -39,6 +40,7 @@ nav {
 	width: 100%;
 	border-right: 1px solid #404548; /* 3 */
 	flex-direction: column;
+	height: 100%;
 }
 .tools-light {
 	color: #919191;
@@ -145,7 +147,8 @@ nav {
 .contact-list {
 	background-color: #131C21;  /* 11 */
 	border-bottom: 1px solid #404548; /* 12 */
-	overflow: hidden;
+	overflow-y: scroll;
+	height: calc(100% - 150.31px);
 }
 .contact-light {
 	background-color: #fff ;
@@ -189,6 +192,12 @@ p.last-message {
 }
 main {
 	display: none;
+	border-top: 1px solid #1E2428;
+	border-right: 1px solid #1E2428;
+	border-bottom: 1px solid #1E2428;
+}
+.main-light {
+	border: none;
 }
 .header {
 	padding: 0 20px;
