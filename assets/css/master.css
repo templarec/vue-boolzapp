@@ -291,9 +291,7 @@ main {
 .fa-angle-down {
 	opacity: 0.5;
 	font-size: 20px;
-
 }
-
 .incoming .caret-menu .propWindow, .incoming-light .caret-menu .propWindow {
 	color: #000;
 	background-color: #e0e0e0;
@@ -316,13 +314,17 @@ main {
 	right: 0;
 	z-index: 1;
 }
-.propWindow p {
+.propWindow span {
 	padding: 5px;
+	display: block;
 }
-.propWindow p:hover{
+.propWindow span:hover{
 	background-color: #085373;
 	color: #B1B3B5;
-
+}
+.propWindow span:first-child {
+	border-bottom: 1px solid #666;
+	color: #8E9193;
 }
 .message-box {
 	height: 50px;

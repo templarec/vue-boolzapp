@@ -76,9 +76,8 @@
 								<span class="caret-menu" @click="showMsgMenu()">
 									<i class="fas fa-angle-down"></i>
 									<span v-if="showWindow" class="propWindow">
-										<p>Message info</p>
-										<hr>
-										<p @click="deleteMsg(currentContact,messaggi.text)">Delete message</p>
+										<span>Message info</span>
+										<span @click="deleteMsg(currentContact,messaggi.text)">Delete message</span>
 									</span>
 								</span>
 
