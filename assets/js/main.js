@@ -27,7 +27,8 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
-				timeStampLs: ''
+				timeStampLs: '',
+				count: 3
 			},
 			{
 				name: 'Fabio',
@@ -51,7 +52,8 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
-				timeStampLs: ''
+				timeStampLs: '',
+				count: 3
 			},
 			{
 				name: 'Samuele',
@@ -75,7 +77,8 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
-				timeStampLs: ''
+				timeStampLs: '',
+				count: 3
 			},
 			{
 				name: 'Luisa',
@@ -94,12 +97,14 @@ var app = new Vue({
 					}
 				],
 				lastMessage: '',
-				timeStampLs: ''
+				timeStampLs: '',
+				count: 2
 			},
 		],
 		currentContact: 0,
 		newMessage: '',
-		cercaUtente: ''
+		cercaUtente: '',
+		showWindow: false
 	},
 	computed: {
 
@@ -130,6 +135,7 @@ var app = new Vue({
 						status: 'sent'
 					}
 					item.messages.push(newMessageObj);
+					item.count++;
 					setTimeout(()=> {
 						let newMessageObj = {
 							date: dayjs(),
@@ -137,6 +143,7 @@ var app = new Vue({
 							status: 'received'
 						}
 						item.messages.push(newMessageObj);
+						item.count++;
 					},1000)
 				}
 			})
@@ -151,6 +158,27 @@ var app = new Vue({
 			user2 = user2.toLowerCase();
 			if (user1.includes(user2))
 				return true;
+		},
+		showMsgMenu: function () {
+			if (!this.showWindow) {
+				this.showWindow = true;
+			} else {
+				this.showWindow = true;
+			}
+		},
+		deleteMsg: function (indice,messaggio) {
+			console.log("prima",this.contacts[indice].messages.length)
+			if (this.contacts[indice].messages.length > 0) {
+				this.contacts[indice].messages.forEach((item, index) => {
+					if (item.text === messaggio) {
+						this.contacts[indice].count = this.contacts[indice].messages.length - 1
+						this.contacts[indice].messages.splice(index, 1);
+
+						console.log("dopo",this.contacts[indice].count)
+					}
+				})
+			}
+
 		}
 	}
 });

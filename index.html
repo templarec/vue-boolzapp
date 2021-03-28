@@ -50,12 +50,11 @@
 							<ul>
 								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="searchUser(contatti.name, cercaUtente)">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
-									<div class="preview">
+									<div  class="preview">
 										<p class="name">{{contatti.name}}</p>
-										<p class="last-message" v-bind="getLastMessage(contatti.name)">{{contatti.lastMessage}}</p>
-										<p class="time-stamp">{{contatti.timeStampLs}}</p>
+										<p v-if="contatti.count > 0" class="last-message" v-bind="getLastMessage(contatti.name)">{{contatti.lastMessage}}</p>
+										<p v-if="contatti.count > 0" class="time-stamp">{{contatti.timeStampLs}}</p>
 									</div>
-
 								</li>
 							</ul>
 						</div>
@@ -69,10 +68,19 @@
 						<i class="fas fa-ellipsis-v"></i>
 					</div>
 					<div class="chat">
-						<ul>
+						<ul v-if="contacts[currentContact].count > 0">
 							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? 'outgoing' : 'incoming')">
 								<span class="msg-box">{{messaggi.text}}</span>
 								<span class="time-stamp">{{getTime(messaggi.date)}}</span>
+								<span class="caret-menu" @click="showMsgMenu()">
+									<i class="fas fa-angle-down"></i>
+									<span v-if="showWindow" class="propWindow">
+										<p>Message info</p>
+										<hr>
+										<p @click="deleteMsg(currentContact,messaggi.text)">Delete message</p>
+									</span>
+								</span>
+
 							</li>
 						</ul>
 					</div>
