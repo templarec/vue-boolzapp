@@ -16,7 +16,7 @@ body {
 }
 .messenger {
 	margin-top: 50px;
-	width: 80%;
+	width: 100vw;
 	background-color: #0D1418; /* 1 */
 	display: flex;
 	height: calc(100vh - 60px);
@@ -27,7 +27,7 @@ body {
 nav {
 	display: flex;
 	flex-direction: column;
-	width: calc(100% / 3);
+	width: 100vw;
 	background-color: #323739; /* 2 */
 }
 .nav-light {
@@ -188,7 +188,7 @@ p.last-message {
 	font-size: 12px;
 }
 main {
-	width: calc((100% / 3)*2);
+	display: none;
 }
 .header {
 	padding: 0 20px;
@@ -225,7 +225,7 @@ main {
 	height: calc(100% - 110px);
 	background: linear-gradient(rgba(13,20,24,.9), rgba(13,20,24,.9)), url("../img/dark.png");
 	background-repeat: repeat;
-	overflow: hidden;
+	overflow-y: scroll;
 	padding-top: 15px;
 }
 .chat-light {
@@ -364,4 +364,16 @@ main {
 }
 .message-area-light input {
 	color: #000000;
+}
+@media screen and (min-width: 720px)  {
+	.messenger {
+		max-width: 1170px;
+	}
+	nav {
+		width: calc(100% / 3);
+	}
+	main {
+		display: block;
+		width: calc((100% / 3)*2);
+	}
 }
