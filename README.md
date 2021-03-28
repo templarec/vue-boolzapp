@@ -1,3 +1,3 @@
 Boolzapp
 
-tempo impiegato nel progetto: 12 ore
+tempo impiegato nel progetto: 14 ore
