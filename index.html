@@ -19,7 +19,8 @@
 		<title>Boolzapp</title>
 	</head>
 	<body>
-		<div :class="(light) ? 'rm-light' : '' " id="root" >
+		<div :class="(light) ? 'root-light' : '' " id="root" >
+			<div v-if="(light)" class="banda-verde"></div>
 			<div class="messenger" :class="(light) ? 'rm-light' : '' ">
 				<nav :class="(light) ? 'nav-light' : '' ">
 					<div class="tools" :class="(light) ? 'tools-light' : '' ">

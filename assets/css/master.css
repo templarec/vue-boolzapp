@@ -1,3 +1,5 @@
+/* suffisso "-light" sono le classi per la light mode*/
+/* Inizio selettori generali */
 * {
 	padding: 0;
 	margin: 0;
@@ -11,7 +13,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	 /* 1 */
 	height: 100vh;
 }
 .messenger {
@@ -20,10 +21,25 @@ body {
 	background-color: #0D1418; /* 1 */
 	display: flex;
 	height: calc(100vh - 60px);
+	position: relative;
+	z-index: 1;
 }
 .rm-light{
 	background-color: #F8F9FA;
 }
+.root-light {
+	background-color: #D7DBD6;
+	position: relative;
+}
+.banda-verde {
+	position: absolute;
+	top: 0;
+	background-color: #009688;
+	height: 130px;
+	width: 100vw;
+}
+/* Fine selettori generali */
+/* Inizio nav */
 nav {
 	display: flex;
 	flex-direction: column;
@@ -205,6 +221,8 @@ p.last-message {
 	margin-top: 5px;
 	font-size: 12px;
 }
+/* Fine nav */
+/* Inizio main */
 main {
 	display: none;
 	border-top: 1px solid #1E2428;
@@ -412,6 +430,9 @@ main {
 .message-area-light input {
 	color: #000000;
 }
+/* Fine main */
+
+/* Media query sotto i 720 visualizza solo nav */
 @media screen and (min-width: 720px)  {
 	.messenger {
 		max-width: 1170px;

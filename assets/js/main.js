@@ -26,9 +26,9 @@ var app = new Vue({
 						status: 'received'
 					}
 				],
-				lastMessage: '',
-				timeStampLs: '',
-				count: 3
+				lastMessage: '', //ultimo messaggio inserito
+				timeStampLs: '', //timestamp ultimo messaggio
+				count: 3 //numero messaggi
 			},
 			{
 				name: 'Fabio',
@@ -100,26 +100,29 @@ var app = new Vue({
 				timeStampLs: '',
 				count: 2
 			},
-		],
-		currentContact: 0,
-		newMessage: '',
-		cercaUtente: '',
-		showWindow: false,
-		light: true
+		], //dati utenti e messaggi
+		currentContact: 0, //indice contatto selezionato
+		newMessage: '', //bind per nuovo messaggio
+		cercaUtente: '', //bind per ricerca utente
+		showWindow: false, //finestra per delete messaggi
+		light: true //modalità giorno o notte
 	},
 	computed: {
 
 	},
 	methods: {
+		//prende ultimo messaggio da visualizzare come preview
 		getLastMessage: function (nome) {
 			this.contacts.forEach((element)=>{
 				if (element.name === nome) {
 					let lunghezza =element.messages.length;
 					element.lastMessage = element.messages[lunghezza - 1 ].text;
+					//prendo il timestamp
 					element.timeStampLs = dayjs(element.messages[lunghezza-1].date).format('HH:mm');
 				}
 			})
 		},
+		//seleziona contatto e fa vedere la chat
 		selectContact: function (nome) {
 			this.contacts.forEach((item,index)=> {
 				if (nome === item.name){
@@ -127,6 +130,7 @@ var app = new Vue({
 				}
 			})
 		},
+		//invio nuovo messaggio
 		sendMessage: function (chat, messaggio){
 			this.contacts.forEach((item,index)=>{
 				if (index === chat && messaggio !=='') {
@@ -137,6 +141,7 @@ var app = new Vue({
 					}
 					item.messages.push(newMessageObj);
 					item.count++;
+					//messaggio automatico
 					setTimeout(()=> {
 						let newMessageObj = {
 							date: dayjs(),
@@ -151,15 +156,18 @@ var app = new Vue({
 			this.newMessage = '';
 
 		},
+		//estrae ora da un messaggio
 		getTime: function (data) {
 			return dayjs(data).format('HH:mm');
 		},
+		//ricerca utente normalizza a minuscolo
 		searchUser: function (user1,user2) {
 			user1 = user1.toLowerCase();
 			user2 = user2.toLowerCase();
 			if (user1.includes(user2))
 				return true;
 		},
+		//visualizza con tasto destro menu delete message
 		showMsgMenu: function () {
 			if (!this.showWindow) {
 				this.showWindow = true;
@@ -167,6 +175,7 @@ var app = new Vue({
 				this.showWindow = true;
 			}
 		},
+		//cancella messaggio
 		deleteMsg: function (indice,messaggio) {
 			if (this.contacts[indice].messages.length > 0) {
 				this.contacts[indice].messages.forEach((item, index) => {
@@ -180,15 +189,18 @@ var app = new Vue({
 		}
 	}
 });
+//automatismo per light o dark mode
 setInterval(() => {
-	let currentTime = dayjs();
-	let darkStart = currentTime.set('hour', 18).set('minute', 0);
-	let darkEnd = currentTime.set('hour', 6).set('minute', 0);
+	let currentTime = dayjs(); //crea data di adesso
+	let darkStart = currentTime.set('hour', 18).set('minute', 0); //set ore 18 alla data generata prima
+	let darkEnd = currentTime.set('hour', 6).set('minute', 0); //set ore 06 alla data generata prima
 	console.log(currentTime.format("HH:mm"), darkStart.format("HH:mm"), darkEnd.format("HH:mm"))
+	//se la data di adesso è dopo le 18 OPPURE prima delle 06
+	//attiva dark mode
 	if (currentTime.isAfter(darkStart) || currentTime.isBefore(darkEnd)) {
 		app.light = false;
 	} else {
 		app.light = true;
 	}
-}, 200)
+}, 200)// check ogni 200ms
 
