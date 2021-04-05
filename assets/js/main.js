@@ -105,7 +105,8 @@ var app = new Vue({
 		newMessage: '', //bind per nuovo messaggio
 		cercaUtente: '', //bind per ricerca utente
 		showWindow: false, //finestra per delete messaggi
-		light: true //modalità giorno o notte
+		light: true, //modalità giorno o notte
+		mode: true //true mobile
 	},
 	computed: {
 
@@ -129,6 +130,22 @@ var app = new Vue({
 					this.currentContact = index;
 				}
 			})
+			//se il device è più piccolo di 721 nascondo side bar e mostro
+			//main
+			if (window.screen.width < 721) {
+				let sidebar = $('nav');
+				let mainchat = $('main')
+				sidebar.hide();
+				mainchat.show();
+
+			}
+		},
+		//tasto indietro
+		goBack: function () {
+			let sidebar = $('nav');
+			let mainchat = $('main')
+			sidebar.show();
+			mainchat.hide();
 		},
 		//invio nuovo messaggio
 		sendMessage: function (chat, messaggio){
@@ -202,5 +219,14 @@ setInterval(() => {
 	} else {
 		app.light = true;
 	}
+	//controllo dimensioni device e setto variabile app.mode di conseg
+	if (window.screen.width < 721) {
+		app.mode = true;
+	} else {
+		app.mode = false;
+		let mainchat = $('main')
+		mainchat.show(); //se più grande faccio vedere il main
+	}
+
 }, 200)// check ogni 200ms
 
