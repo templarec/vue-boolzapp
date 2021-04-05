@@ -196,9 +196,17 @@ nav {
 	list-style: none;
 	padding: 10px 20px;
 	border-bottom: 1px solid #323739; /* 14 */
+	cursor: pointer;
+}
+.contact-list li:hover {
+	background-color: #416071;
 }
 .contact-light li {
 	border-bottom: 1px solid #F2F2F2;
+}
+.contact-light li:hover {
+	background-color: #c7ced0;
+	color: #000000;
 }
 .contact-list img {
 	width: 50px;
@@ -440,7 +448,7 @@ main {
 /* Media query sotto i 720 visualizza solo nav */
 @media screen and (min-width: 720px)  {
 	.messenger {
-		max-width: 1170px;
+		max-width: 1200px;
 		margin: 25px 0;
 		height: calc(100vh - 60px);
 	}
