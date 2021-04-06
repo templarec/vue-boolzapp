@@ -19,7 +19,7 @@
 		<title>Boolzapp</title>
 	</head>
 	<body>
-		<div :class="(light) ? 'root-light' : '' " id="root" >
+		<div :class="(light) ? 'root-light' : '' " id="root" @click="showWindow = false" >
 			<div v-if="(light)" class="banda-verde"></div>
 			<div class="messenger" :class="(light) ? 'rm-light' : '' ">
 				<nav :class="(light) ? 'nav-light' : '' ">
@@ -50,7 +50,7 @@
 						</div>
 						<div class="contact-list" :class="(light) ? 'contact-light' : '' ">
 							<ul>
-								<li v-for="contatti in contacts" @click="selectContact(contatti.name)" v-if="searchUser(contatti.name, cercaUtente)">
+								<li v-for="(contatti,i) in contacts" @click="selectContact(contatti.name)" v-if="searchUser(contatti.name, cercaUtente)" :class="(currentContact === i) ? 'selezionato' : '' ">
 									<img :src="'./assets/img/avatar'+ contatti.avatar +'.jpg'" alt="Contact avatar">
 									<div  class="preview">
 										<p :class="(light) ? 'name-light' : '' " class="name">{{contatti.name}}</p>
@@ -72,17 +72,16 @@
 					</div>
 					<div class="chat" :class="(light) ? 'chat-light' : '' ">
 						<ul v-if="contacts[currentContact].count > 0">
-							<li v-for="messaggi in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? ((light) ? 'outgoing-light': 'outgoing') : ((light) ? 'incoming-light': 'incoming'))">
+							<li v-for="(messaggi,i) in contacts[currentContact].messages" :class="(messaggi.status ==='sent'? ((light) ? 'outgoing-light': 'outgoing') : ((light) ? 'incoming-light': 'incoming'))">
 								<span class="msg-box">{{messaggi.text}}</span>
 								<span class="time-stamp">{{getTime(messaggi.date)}}</span>
-								<span class="caret-menu" @click="showMsgMenu()">
+								<span class="caret-menu" @click.stop="showMsgMenu(i)">
 									<i class="fas fa-angle-down"></i>
-									<span v-if="showWindow" class="propWindow">
-										<span>Message info</span>
-										<span @click="deleteMsg(currentContact,messaggi.text)">Delete message</span>
-									</span>
 								</span>
-
+								<span v-if="(showWindow === true) && (currentMsg === i)" class="propWindow">
+									<span>Message info</span>
+									<span @click="deleteMsg(currentContact,messaggi.text)">Delete message</span>
+								</span>
 							</li>
 						</ul>
 					</div>

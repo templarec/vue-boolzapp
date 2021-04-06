@@ -106,7 +106,9 @@ var app = new Vue({
 		cercaUtente: '', //bind per ricerca utente
 		showWindow: false, //finestra per delete messaggi
 		light: true, //modalità giorno o notte
-		mode: true //true mobile
+		mode: true, //true mobile
+		currentMsg: ''
+
 	},
 	computed: {
 
@@ -185,11 +187,12 @@ var app = new Vue({
 				return true;
 		},
 		//visualizza con tasto destro menu delete message
-		showMsgMenu: function () {
-			if (!this.showWindow) {
-				this.showWindow = true;
+		showMsgMenu: function (index) {
+			if (this.showWindow) {
+				this.showWindow = false;
 			} else {
 				this.showWindow = true;
+				this.currentMsg = index;
 			}
 		},
 		//cancella messaggio

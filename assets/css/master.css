@@ -198,16 +198,25 @@ nav {
 	border-bottom: 1px solid #323739; /* 14 */
 	cursor: pointer;
 }
+.contact-list li.selezionato {
+	background-color: #2f4551;
+}
 .contact-list li:hover {
 	background-color: #416071;
 }
+
 .contact-light li {
 	border-bottom: 1px solid #F2F2F2;
+}
+.contact-light li.selezionato {
+	background-color: #d5dbdc;
+	color: #000000;
 }
 .contact-light li:hover {
 	background-color: #c7ced0;
 	color: #000000;
 }
+
 .contact-list img {
 	width: 50px;
 	border-radius: 50%;
@@ -323,6 +332,7 @@ main {
 }
 .chat-light ul li {
 	color: #000;
+	position: relative;
 }
 .outgoing, .incoming, .outgoing-light, .incoming-light {
 	height: 30px;
@@ -368,7 +378,7 @@ main {
 	opacity: 0.5;
 	font-size: 20px;
 }
-.incoming .caret-menu .propWindow, .incoming-light .caret-menu .propWindow {
+.incoming .propWindow, .incoming-light .propWindow {
 	color: #000;
 	background-color: #e0e0e0;
 	box-shadow: 2px 2px 2px #000;
@@ -376,10 +386,10 @@ main {
 	position: absolute;
 	width: 150px;
 	top: 20px;
-	left: -15px;
+	left: 100px;
 	z-index: 1;
 }
-.outgoing .caret-menu .propWindow, .outgoing-light .caret-menu .propWindow {
+.outgoing .propWindow, .outgoing-light .propWindow {
 	color: #000;
 	background-color: #e0e0e0;
 	box-shadow: 2px 2px 2px #000;
